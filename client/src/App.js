@@ -18,6 +18,8 @@ import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
 import CONSTANTS from './constants';
 import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
+import HowItWorks from "./pages/HowItWorks";
+import EventPage from "./pages/EventPage";
 
 
 
@@ -36,9 +38,12 @@ class App extends Component {
                     draggable
                     pauseOnHover
                 />
-                <Switch>
+          <Switch>
+                    <Route exact path='/howitworks' component={HowItWorks}/>
+                    <Route exact path='/eventPage' component={EventPage}/>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/login' component={OnlyNotAuthorizedUserHoc(LoginPage)}/>
+
                     <Route exact path='/registration' component={OnlyNotAuthorizedUserHoc(RegistrationPage)}/>
                     <Route exact path='/payment' component={PrivateHoc(Payment)}/>
                     <Route exact path='/startContest' component={PrivateHoc(StartContestPage)}/>

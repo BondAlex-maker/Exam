@@ -18,7 +18,9 @@ const LoginPage = (props) => {
           <Logo src={ `${ CONSTANTS.STATIC_IMAGES_PATH }logo.png` } alt="logo"/>
           <div className={ styles.linkLoginContainer }>
             <Link to='/registration'
-                  style={ {textDecoration: 'none'} }><span>Signup</span></Link>
+                  style={ {textDecoration: 'none',height: '40px', display: 'flex', alignItems: 'center', padding: '5px 10px', border: '1px solid white', borderRadius: '3px'} }><span>Signup</span></Link>
+            <a href="http://localhost:9632/forgotpassword"
+               style={ {textDecoration: 'none', height: '40px', display: 'flex', alignItems: 'center', padding: '5px 20px', border: '1px solid white', borderRadius: '3px'} }><span>ForgotPassword</span></a>
           </div>
         </div>
         <div className={ styles.loginFormContainer }>
