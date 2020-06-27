@@ -6,7 +6,7 @@ const userQueries = require('./queries/userQueries');
 const controller = require('../../socketInit');
 const UtilFunctions = require('../utils/functions');
 const NotFound = require('../errors/UserNotFoundError');
-const CONSTANTS = require('../../constants');
+const CONSTANTS = require('../../constants.js');
 
 module.exports.dataForContest = async (req, res, next) => {
   let response = {};
@@ -61,6 +61,7 @@ module.exports.getContestById = async (req, res, next) => {
           model: db.Offers,
           required: false,
           where: req.tokenData.role === CONSTANTS.CREATOR
+              && req.tokenData.role === CONSTANTS.MODERATOR
             ? { userId: req.tokenData.userId }
             : {},
           attributes: { exclude: ['userId', 'contestId'] },

@@ -8,6 +8,10 @@ const validators = require('../middlewares/validators');
 const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
 const router = express.Router();
+const emailHelper = require('../utils/emailHelper');
+
+
+
 
 router.post(
   '/registration',
@@ -21,6 +25,28 @@ router.post(
   validators.validateLogin,
   userController.login
 );
+
+router.get(
+    '/forgotpassword',
+    emailHelper.inputEmailAndPassword,
+);
+
+router.post(
+    '/passwordreset',
+    emailHelper.getUserAndSendEmail,
+);
+
+router.get(
+    '/resetpassword/:id/:token/:password',
+    emailHelper.decryptToken
+);
+
+router.post(
+    '/resetpassword',
+    emailHelper.setNewPassword
+);
+
+
 
 router.post(
   '/dataForContest',

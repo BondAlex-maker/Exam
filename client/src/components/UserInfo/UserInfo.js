@@ -51,6 +51,7 @@ const UserInfo = (props) => {
                             <span className={styles.label}>Balance</span>
                             <span className={styles.info}>{`${balance}$`}</span>
                         </div>}
+
                     </div>
                 </div>
             }
